@@ -1,6 +1,7 @@
 const express = require("express");
 const LoginController = require("../controllers/logincontroller")
 
+
 const router = express.Router();
 
 let controller = new LoginController()

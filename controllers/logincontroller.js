@@ -11,10 +11,24 @@ class LoginController {
         let senhab = req.body.senha;
 
         if(usuarios[0].email == emailb && usuarios[0].senha == senhab){
-            res.render("acesso");
+            res.render("acesso",{layout: false});
         } else {
             res.render("recuperar");
         }
+    }
+
+    recuperar(req, res) {
+        const email = req.body.email?.trim();
+
+        if (!email || !email.includes("@")) {
+            return res.render("recuperar", {
+                erro: "Email inválido. Digite um e-mail válido com @."
+            });
+        }
+
+        return res.render("recuperar", {
+            sucesso: `Enviamos um link para recuperação de senha no e-mail ${email}`
+        });
     }
 
     rotaLogin(req, res){

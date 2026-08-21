@@ -1,8 +1,21 @@
-<form method="get" action="/">
+<form method="POST" action="/recuperar">
   <div class="mb-3">
     <h2>Email para recuperar</h2>
     <label for="email" class="form-label">Email:</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
   </div>
-  <a href="/"><button type="submit" class="btn btn-primary">Enviar</button></a>
+
+  <% if (typeof sucesso !== 'undefined') { %>
+    <div class="alert alert-success" role="alert">
+      <%= sucesso %>
+    </div>
+  <% } %>
+
+  <% if (typeof erro !== 'undefined') { %>
+    <div class="alert alert-danger" role="alert">
+      <%= erro %>
+    </div>
+  <% } %>
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
