@@ -11,7 +11,7 @@ class LoginController {
         let senhab = req.body.senha;
 
         if(usuarios[0].email == emailb && usuarios[0].senha == senhab){
-            res.render("acesso",{layout: false});
+            res.render("acesso");
         } else {
             res.render("recuperar");
         }
